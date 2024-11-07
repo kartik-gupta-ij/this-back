@@ -29,10 +29,10 @@ const __dirname = path.resolve();
 const app = express();
 
 app.use(cors({
-  origin: 'https://sadhana-v5rh.onrender.com',
+  origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS','PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
+  
 }));
 
 app.use(express.json());
@@ -46,7 +46,7 @@ app.use('/api/comment', commentRouter);
 app.use('/api/blog', blogRoutes);
 app.use('/api/mcq', MCQRoutes);
 app.use('/api/event', eventRouter);
-app.use('/api', sadhanaFormRouter);
+app.use('/api/form', sadhanaFormRouter);
 
 // 404 handler for API routes
 app.use('/api', (req, res) => {
